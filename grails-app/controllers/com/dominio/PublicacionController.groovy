@@ -4,7 +4,7 @@ class PublicacionController {
 	
 	static allowedMethods = [busqueda: 'GET',
 		buscarPorPublicacion:'POST',
-		]
+		]//s
 	
 	def index = {
 		redirect (action: busqueda)

@@ -6,5 +6,7 @@ class Publicacion {
 	String titulo
 	Date fechaPublicacion
 	String descripcion
+	
+	double precio
 
 }

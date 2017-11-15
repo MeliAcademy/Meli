@@ -14,6 +14,7 @@ class UserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+		
 
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
@@ -25,18 +26,15 @@ class UserController {
 	}
 
 	def home = {
-//		if (params.userName == "pepe" && params.password == "1234") {
-//
-//		} else {
-//			//Falta decirle al user que fallo el logueo
-//			flash.message = "Contrasena incorrecta"
-//			redirect(action: 'index')
-//		}
+		
 		def user = User.find( {userName == params.userName && password == params.password })
 		if(!user) {
-			flash.message = "Contrasena incorrecta"
+			if(params.userName != null || params.password != null) {
+				flash.message = "Contrasena incorrecta"
+			}
 			redirect(action: 'index')
-		}
+		} 
+		session.user = params.userName
 	}
     def show(User userInstance) {
         respond userInstance
@@ -124,4 +122,9 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	def logout = {
+		session.user = null
+		redirect(action : 'index')
+	}
 }

@@ -10,8 +10,8 @@ class PublicacionService {
 	def buscarPublicacion(String titulo) {
         def publicaciones = Publicacion.withCriteria {
             if(titulo){
-                createAlias("titulo", "tit")
-                eq('tit.nombre', titulo)
+                createAlias("publicacion", "pub")
+                like('titulo', '%'+titulo+'%')
             }
         }
         return publicaciones

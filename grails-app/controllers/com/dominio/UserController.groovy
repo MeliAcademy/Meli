@@ -22,6 +22,8 @@ class UserController {
 	def createUsers() {
 		User pepe = new User(userName:'pepe', password:'1234')
 		pepe.save()
+		Publicacion pub = new Publicacion(titulo:'publicacion1', fechaPublicacion: Date.parse("yyyy-MM-dd", "2017-11-15"), descripcion: 'test')
+		pub.save()
 		redirect (action: 'index')
 	}
 

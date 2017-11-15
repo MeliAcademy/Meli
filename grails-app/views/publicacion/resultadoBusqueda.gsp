@@ -7,17 +7,14 @@
 		<h1>Resultado</h1>
 		<table>
 			<tr>
-	      		<th>Semana</th>
-	      		<th>Proyecto</th>
-	      		<th>%</th>
+	      		<th>Título</th>
+	      		<th>Fecha de publicación</th>
 	      		<th></th>
 	      	</tr>
-			<g:each var="each" in="${dedicaciones}">
+			<g:each var="each" in="${publicaciones}">
 		      	<tr>
-					<td>${each.semana}</td>
-					<td>${each.proyecto}</td>
-					<td>${each.porcentaje}</td>
-					<td>${each.persona}</td>
+					<td>${each.titulo}</td>
+					<td>${each.fechaPublicacion}</td>
 		      	</tr>	
 			</g:each>
 		</table>

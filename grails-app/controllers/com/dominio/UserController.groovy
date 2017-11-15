@@ -1,7 +1,5 @@
 package com.dominio
 
-
-
 import static org.springframework.http.HttpStatus.*
 
 import com.dominio.User;
@@ -14,14 +12,17 @@ class UserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-		
-
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
+	
 	def createUsers() {
 		User pepe = new User(userName:'pepe', password:'1234')
 		pepe.save()
+		def mydate = Date.parse("yyyy-MM-dd hh:mm:ss", "2014-04-03 1:23:45")
+		Publicacion pub = new Publicacion(titulo:'publicacion1', fechaPublicacion: mydate, descripcion: 'test')
+		Publicacion.getAll().size()
+		pub.save()
 		redirect (action: 'index')
 	}
 

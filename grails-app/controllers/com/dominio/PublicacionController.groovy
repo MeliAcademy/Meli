@@ -8,9 +8,7 @@ class PublicacionController {
 	
 	PublicacionService publicacionService
 	
-	static allowedMethods = [busqueda: 'GET',
-		buscarPorPublicacion:'POST',
-		]//s
+	static allowedMethods = [buscarPorTitulo:'GET']
 	
 	def index = {
 		redirect (action: busqueda)
@@ -22,12 +20,12 @@ class PublicacionController {
 	
 	def busqueda = {
 		def publicaciones = Publicacion.findAll()
-		return [publicaciondes: publicaciones]
+		return [publicaciones: publicaciones]
 	}
 	
-	def buscarPorTitulo(String titulo) {
-		def publicaciones = publicacionService.buscarPublicacion(titulo)
-		return new ModelAndView("/buscarPublicacion/resultado", [publicaciones: publicaciones])
+	def buscarPorTitulo = {
+		def publicaciones = publicacionService.buscarPublicacion(params.titulo)
+		return new ModelAndView("/publicacion/resultadoBusqueda", [publicaciones: publicaciones])
 	}
 	
 	def crearPublicacion = {

@@ -1,5 +1,6 @@
 package melicommerce
 
+
 import com.dominio.Publicacion;
 
 import grails.transaction.Transactional
@@ -16,5 +17,9 @@ class PublicacionService {
         }
         return publicaciones
     }
+	
+	def crearPublicacion(String titulo, String desc, double precio) {
+		new Publicacion(titulo: titulo, descripcion: desc, precio: precio)
+	}
 	
 }

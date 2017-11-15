@@ -14,10 +14,30 @@ class UserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
+	def createUsers() {
+		User pepe = new User(userName:'pepe', password:'1234')
+		pepe.save()
+		redirect (action: 'index')
+	}
 
+	def home = {
+//		if (params.userName == "pepe" && params.password == "1234") {
+//
+//		} else {
+//			//Falta decirle al user que fallo el logueo
+//			flash.message = "Contrasena incorrecta"
+//			redirect(action: 'index')
+//		}
+		def user = User.find( {userName == params.userName && password == params.password })
+		if(!user) {
+			flash.message = "Contrasena incorrecta"
+			redirect(action: 'index')
+		}
+	}
     def show(User userInstance) {
         respond userInstance
     }

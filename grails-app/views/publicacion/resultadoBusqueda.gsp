@@ -14,7 +14,7 @@
 			<g:each var="each" in="${publicaciones}">
 		      	<tr>
 					<td>${each.titulo}</td>
-					<td>${each.fechaDePublicacion}</td>
+					<td>${each.fechaPublicacion}</td>
 		      	</tr>	
 			</g:each>
 		</table>

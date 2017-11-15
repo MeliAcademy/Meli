@@ -8,9 +8,7 @@ class PublicacionController {
 	
 	PublicacionService publicacionService
 	
-	static allowedMethods = [busqueda: 'GET',
-		buscarPorTitulo:'GET',
-		]//s
+	static allowedMethods = [buscarPorTitulo:'GET']
 	
 	def index = {
 		redirect (action: busqueda)

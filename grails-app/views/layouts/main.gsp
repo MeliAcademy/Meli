@@ -7,19 +7,37 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
+		<title><g:layoutTitle default="MeliCommerce"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-  		<asset:stylesheet src="application.css"/>
-		<asset:javascript src="application.js"/>
+		<link rel="stylesheet" href="${assetPath(src: 'agency.min.css')}">
+		<link rel="stylesheet" href="${assetPath(src: 'bootstrap.min.css')}">
 		<g:layoutHead/>
 	</head>
-	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
-		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-	</body>
+	<body id="page-top">
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+	      <div class="container">
+	        <a class="navbar-brand js-scroll-trigger" href="/MeliCommerce/user/index">MELICOMMERCE</a>
+	        <div class="collapse navbar-collapse" id="navbarResponsive">
+	          <ul class="navbar-nav text-uppercase ml-auto">
+	            <li class="nav-item" style="width:500px;">
+	            	<g:form controller="publicacion" action="buscarPorTitulo" method="get" style="margin-top:9px;;display:flex;flex-direction:row;align-items: center;flex-wrap: nowrap;">
+						<input type="text" name="titulo" required style="margin-right:10px;width:400px;">
+						<input type="submit" class="nav-link js-scroll-trigger btn btn-primary" value="BUSCAR" style="padding:5px!important">
+					</g:form>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link js-scroll-trigger" href="../publicacion/crearPublicacion.gsp">PUBLICAR</a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link js-scroll-trigger" href="./user/login.gsp">LOGIN</a>
+	            </li>
+	          </ul>
+	        </div>
+	      </div>
+	    </nav>
+	    <g:layoutBody/>	
+    </body>
 </html>

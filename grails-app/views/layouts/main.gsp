@@ -14,12 +14,16 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
 		<link rel="stylesheet" href="${assetPath(src: 'agency.min.css')}">
 		<link rel="stylesheet" href="${assetPath(src: 'bootstrap.min.css')}">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
 		<g:layoutHead/>
 	</head>
 	<body id="page-top">
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
 	      <div class="container">
-	        <a class="navbar-brand js-scroll-trigger" href="/MeliCommerce/user/index">MELICOMMERCE</a>
+	        <a class="navbar-brand js-scroll-trigger" href="/MeliCommerce/user/index">MeliCommerce</a>
 	        <div class="collapse navbar-collapse" id="navbarResponsive">
 	          <ul class="navbar-nav text-uppercase ml-auto">
 	            <li class="nav-item" style="width:500px;">

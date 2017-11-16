@@ -11,7 +11,7 @@
 				<tr>
 		      		<th>Título</th>
 		      		<th>Fecha de publicación</th>
-		      		<th>Precio</th>
+		      		<th></th>
 		      	</tr>
 				<g:each var="each" in="${publicaciones}">
 			      	<tr>

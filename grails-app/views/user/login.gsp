@@ -4,7 +4,7 @@
 		<meta name="layout" content="main"/>
 	</head>
 	
-	<body>
+	<body class="bodygeneral">
 		${flash.message}
 		<g:form action="home" class="container-fluid" >
 		<br><br><br><br><br><br>

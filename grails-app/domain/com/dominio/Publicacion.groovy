@@ -7,6 +7,7 @@ class Publicacion {
 	Date fechaPublicacion
 	String descripcion
 	boolean fueVendido;
+	boolean esPublicacionSinUso;
 	
 	double precio
 

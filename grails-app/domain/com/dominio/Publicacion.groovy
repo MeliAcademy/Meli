@@ -8,7 +8,6 @@ class Publicacion {
 	String descripcion
 	boolean fueVendido;
 	boolean esPublicacionSinUso;
-	
 	double precio
 
 }

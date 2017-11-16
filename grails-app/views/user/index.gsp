@@ -4,7 +4,7 @@
 	  <meta name="layout" content="main"/>
 	</head>
 	
-	<body>
+	<body >
 		<header class="masthead">
 	      <div class="container">
 	        <div class="intro-text">

@@ -10,7 +10,7 @@ class PublicacionController {
 	
 	PublicacionService publicacionService
 	
-	static allowedMethods = [buscarPorTitulo:'GET']
+	static allowedMethods = [buscarPorTitulo:'GET', crearPublicacion: 'GET', resultadoCrear: 'POST']
 	
 	def index = {
 		redirect (action: busqueda)
@@ -26,19 +26,24 @@ class PublicacionController {
 	}
 	
 	def buscarPorTitulo = {
-		def publicaciones = publicacionService.buscarPublicacion(params.titulo)
+		def publicaciones = publicacionService.buscarPublicacionesPorString(params.titulo)
 		return new ModelAndView("/publicacion/resultadoBusqueda", [publicaciones: publicaciones])
 	}
 	
 	def crearPublicacion = {
+		//CHECK LOGIN
+		return new ModelAndView("/publicacion/crearPublicacion")
 	}
 	
-	def publicar = {
-		if (Double.valueOf(params.precio) <= 0) {
-			redirect(action : 'crearPublicacion')
-		}
-		publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue())	
-		render "publicacion creada exitosamente"
+	def resultadoCrear = {
+		Publicacion publicacion = publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue())	
+		boolean resultado = publicacion.isAttached()
+		return new ModelAndView("/publicacion/resultadoCrear", [publicacion: publicacion, resultado: resultado])
+	}
+	
+	def verPublicacion(String id) {
+		Publicacion publicacion = publicacionService.buscarPublicacionPorId(Long.parseLong(id))
 		
+		return new ModelAndView("/publicacion/verPublicacion", [publicacion: publicacion])
 	}
 }

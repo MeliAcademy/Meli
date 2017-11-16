@@ -6,6 +6,7 @@ import com.dominio.User;
 
 import grails.transaction.Transactional
 import melicommerce.UserService;
+import org.springframework.web.servlet.ModelAndView
 
 @Transactional(readOnly = false)
 class UserController {
@@ -16,6 +17,10 @@ class UserController {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
+	
+	def login = {
+		return new ModelAndView("/user/login")
+	}
 	
 	def createUsers() {
 		UserService userService = new UserService()
@@ -40,6 +45,7 @@ class UserController {
 		} 
 		session.user = params.userName
 	}
+	
     def show(User userInstance) {
         respond userInstance
     }

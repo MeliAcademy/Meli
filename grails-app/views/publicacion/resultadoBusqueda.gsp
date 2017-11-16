@@ -14,10 +14,12 @@
 		      		<th></th>
 		      	</tr>
 				<g:each var="each" in="${publicaciones}">
-			      	<tr>
-						<td>${each.titulo}</td>
-						<td>${each.fechaPublicacion}</td>
-			      	</tr>	
+					<g:if test="${each.fueVendido == false}">
+						<tr>
+							<td>${each.titulo}</td>
+							<td>${each.fechaPublicacion}</td>
+				      	</tr>
+					</g:if>
 				</g:each>
 			</table>
 			<br><br>

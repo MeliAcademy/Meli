@@ -1,5 +1,7 @@
 package com.dominio
 
+import java.util.Date;
+
 import melicommerce.PublicacionService;
 
 import org.springframework.web.servlet.ModelAndView
@@ -29,16 +31,14 @@ class PublicacionController {
 	}
 	
 	def crearPublicacion = {
-		
 	}
 	
 	def publicar = {
 		if (Double.valueOf(params.precio) <= 0) {
 			redirect(action : 'crearPublicacion')
 		}
-
-		publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue())
-		
+		publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue())	
 		render "publicacion creada exitosamente"
+		
 	}
 }

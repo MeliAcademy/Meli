@@ -5,8 +5,9 @@ import static org.springframework.http.HttpStatus.*
 import com.dominio.User;
 
 import grails.transaction.Transactional
+import melicommerce.UserService;
 
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -17,12 +18,14 @@ class UserController {
     }
 	
 	def createUsers() {
-		User pepe = new User(userName:'pepe', password:'1234')
-		pepe.save()
-		def mydate = Date.parse("yyyy-MM-dd hh:mm:ss", "2014-04-03 1:23:45")
-		Publicacion pub = new Publicacion(titulo:'publicacion1', fechaPublicacion: mydate, descripcion: 'test')
-		Publicacion.getAll().size()
-		pub.save()
+		UserService userService = new UserService()
+		User user = userService.crearUser()
+		//user.save()
+		
+		//def mydate = Date.parse("yyyy-MM-dd hh:mm:ss", "2014-04-03 1:23:45")
+		//Publicacion pub = new Publicacion(titulo:'publicacion1', fechaPublicacion: mydate, descripcion: 'test')
+		//Publicacion.getAll().size()
+		//pub.save()
 		redirect (action: 'index')
 	}
 

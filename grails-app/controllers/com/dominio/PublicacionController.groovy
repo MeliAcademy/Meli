@@ -48,7 +48,7 @@ class PublicacionController {
 		return new ModelAndView("/publicacion/verPublicacion", [publicacion: publicacion])
 	}
 	
-	def comprar = {
+	def resultadoComprar = {
 		boolean resultado = false
 		String resultadoRazon = "Se ha encontrado un problema en el servidor"
 		if(params.user.balance >= params.publicacion.precio){

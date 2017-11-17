@@ -46,10 +46,11 @@ class UserController {
 			if(params.userName != null || params.password != null) {
 				flash.message = "Contrasena incorrecta"
 			}
-			redirect(action: 'index')
+			redirect(action : 'login')
 		} 
 		session.putAt("user", user)
-		redirect(action: 'index')
+		new ModelAndView('/user/index')
+		
 		
 	}
 	

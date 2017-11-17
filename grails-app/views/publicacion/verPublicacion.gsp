@@ -15,6 +15,12 @@
 				location.href = "${createLink(action: 'resultadoBusqueda', controller: 'pregunta', params: [publicacion: publicacion.id])}";
 			}
 		</g:javascript>
+		<style type="text/css">
+			.classa:hover{
+				cursor: pointer;
+			}
+			.classa { color: #fed136!important; text-decoration: underline!important; }
+		</style>
 	</head>
 	
 	<body>
@@ -28,10 +34,12 @@
 	            <h4 class="service-heading">$${publicacion.precio}</h4>
 	            <a class="btn btn-primary btn-xl text-uppercase" onclick="javascript:comprar();">Comprar</a>				
 	          </div>
+	          <br>
+	          ¿Querés hacer una pregunta? Hacela <a class="classa" onclick="javascript:goToPreguntas();">acá</a>
 	        </div>
+	        
 		</div>
 		
-		Queres hacer una pregunta?
-		Hazlo <a onclick="javascript:goToPreguntas();">aqui</a>
+		
 	</body>
 </html>

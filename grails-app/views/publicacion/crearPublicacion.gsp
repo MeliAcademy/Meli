@@ -8,8 +8,11 @@
 		<div class="bodygeneral">
 			<g:form controller="publicacion" action="resultadoCrear" method="POST">
 				<div align=center>
+					<h1>Comenzá ahora: publicá un producto</h1>
+					<br>
+					<br>
 					 <label>Titulo:</label> <input type="text" name="titulo" required> <br>
-					 <label>Descripcion:</label> <input type="text" name="descripcion" required> <br>
+					 <label>Descripcion:</label> <input type="text" name="descripcion" style="width: 250px;" required> <br>
 					 <label>Precio:</label> <input type="text" name="precio" required> <br>
 					 <label>Estado:</label> <select name="esPublicacionSinUso" required>
 					   <option value=false >Es usado</option> 

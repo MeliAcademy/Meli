@@ -38,14 +38,14 @@
 			<h1>Resultado</h1>
 			<br>
 			<div>
-			<span>Class:</span> 
+			<span>Estado:</span> 
 			<select id="selectCategory">
-			            <option value="">ALL</option>
+			            <option value="">Todos</option>
 			            <option value="Nuevo">Nuevo</option>
 			            <option value="Usado">Usado</option>
 			        </select>
 			</div>
-			
+			<br>
 			<table id="tabla" style="width:100%">
 				<thead>
 					<tr>

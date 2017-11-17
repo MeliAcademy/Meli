@@ -15,7 +15,7 @@
 					   <option value=false >Es usado</option> 
 					   <option value=true selected>Es nuevo</option>
 					 </select><br><br>
-					 <label>&nbsp;</label> <input type="submit" value="Publicar">
+					 <label>&nbsp;</label> <input class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit" value="Publicar">
 				</div>
 			</g:form>
 		</div>

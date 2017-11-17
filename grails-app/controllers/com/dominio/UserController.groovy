@@ -1,17 +1,17 @@
 package com.dominio
 
 import static org.springframework.http.HttpStatus.*
-
-import com.dominio.User;
-
 import grails.transaction.Transactional
-import melicommerce.UserService;
+import melicommerce.PublicacionService
+import melicommerce.UserService
+
 import org.springframework.web.servlet.ModelAndView
 
 @Transactional(readOnly = false)
 class UserController {
 	
 	UserService userService = new UserService()
+	PublicacionService publicacionService = new PublicacionService()
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -50,6 +50,7 @@ class UserController {
 		} 
 		session.putAt("user", user)
 		redirect(action: 'index')
+		
 	}
 	
     def show(User userInstance) {
@@ -141,5 +142,9 @@ class UserController {
 	
 	def profile = {
 		return new ModelAndView("/user/profile", [usuario: userService.buscarUserPorId(session.user.id)])
+	}
+	
+	def showPubs = {
+		return new ModelAndView("/user/MisPublicaciones", [publicaciones: publicacionService.buscarPublicacionesPorId(session.getAttribute("user").id)])
 	}
 }

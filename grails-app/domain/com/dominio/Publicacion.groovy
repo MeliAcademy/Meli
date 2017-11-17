@@ -9,5 +9,6 @@ class Publicacion {
 	boolean fueVendido;
 	boolean esPublicacionSinUso;
 	double precio
+	Long idUser
 
 }

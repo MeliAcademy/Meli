@@ -35,4 +35,11 @@ class PublicacionService {
 		return pub
 	}
 	
+	def buscarPublicacionesPorId(Long id) {
+		def publicaciones = Publicacion.withCriteria {
+			eq('idUser', id)
+		}
+		return publicaciones
+	}
+	
 }

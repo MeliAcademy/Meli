@@ -36,7 +36,7 @@ class PublicacionController {
 	}
 	
 	def resultadoCrear = {
-		Publicacion publicacion = publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue(), Boolean.parseBoolean(params.esPublicacionSinUso))	
+		Publicacion publicacion = publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue(), Boolean.parseBoolean(params.esPublicacionSinUso), session.getAttribute("user").id)	
 		boolean resultado = publicacion.isAttached()
 		return new ModelAndView("/publicacion/resultadoCrear", [publicacion: publicacion, resultado: resultado])
 	}

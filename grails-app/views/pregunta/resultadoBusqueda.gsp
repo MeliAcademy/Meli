@@ -32,6 +32,12 @@
 				</tbody>
 			</table>
 			<br><br>
+				<g:form controller="pregunta" action="crearPregunta" method="POST">
+				<div align=center>
+					 <label>Pregunta:</label> <input type="text" name="texto" required> <br>
+					 <label>&nbsp;</label> <input class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit" value="Publicar">
+				</div>
+			</g:form>
 		</div>
 	</body>
 </html>

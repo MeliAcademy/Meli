@@ -11,6 +11,7 @@ class PreguntaService {
 	
 	def crearPregunta(String texto) {
 		Pregunta preg = new Pregunta(texto: texto)
+		preg.save()
 		return preg
 	}
 	

@@ -35,7 +35,10 @@
 	            <a class="btn btn-primary btn-xl text-uppercase" onclick="javascript:comprar();">Comprar</a>				
 	          </div>
 	          <br>
-	          ¿Querés hacer una pregunta? Hacela <a class="classa" onclick="javascript:goToPreguntas();">acá</a>
+	          <div class="text-center"><br><br>
+			<p class="text-muted"> Queres hacer una pregunta? 
+			Hazlo <a onclick="javascript:goToPreguntas();">aqui</a> </p>
+			</div>
 	        </div>
 	        
 		</div>

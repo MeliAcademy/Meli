@@ -11,9 +11,15 @@
 					 <label>Titulo:</label> <input type="text" name="titulo" required> <br>
 					 <label>Descripcion:</label> <input type="text" name="descripcion" required> <br>
 					 <label>Precio:</label> <input type="text" name="precio" required> <br>
-					 <select name="esPublicacionSinUso" required>
+					 <label>Estado:</label> <select name="esPublicacionSinUso" required>
 					   <option value=false >Es usado</option> 
 					   <option value=true selected>Es nuevo</option>
+					 </select>
+					 <br>
+ 					 <label>Categoria:</label> <select name="categoria" required>
+	 					 <g:each var="each" in="${categorias}">
+	 					 	<option value="${each.id}" selected>${each.nombre}</option>
+	 					 </g:each>
 					 </select><br><br>
 					 <label>&nbsp;</label> <input class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit" value="Publicar">
 				</div>

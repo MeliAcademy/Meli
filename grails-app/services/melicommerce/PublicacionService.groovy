@@ -68,12 +68,16 @@ class PublicacionService {
 	def buscarComprasPorId(Long id) {
 		
 		def ventas = Transaccion.withCriteria {
-			eq("idUser", id)
+			eq("idUsuario", id)
 		}
-		def idPubs = new ArrayList<>()
+		def publicaciones = new ArrayList<>()
+		
+		
 		for (venta in ventas) {
-			idPubs.add(venta.idPublicacion)
+			publicaciones.add(buscarPublicacionPorId(venta.idPublicacion))
 		}
+		
+		return publicaciones
 		
 		
 	}

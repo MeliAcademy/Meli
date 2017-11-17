@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Mis ventas</title>
+		<title>Mis compras</title>
 		<meta name="layout" content="main"/>
 		<style type="text/css">
 			.rowPub:hover{
@@ -12,7 +12,7 @@
 	</head>
 	<body>
 	<div class="bodygeneral">
-		<h1>Mis ventas</h1>
+		<h1>Mis compras</h1>
 		<br>
 		<table id="tabla" style="width:100%">
 				<thead>
@@ -24,7 +24,7 @@
 			      	</tr>
 			    </thead>
 	    <tbody>
-		<g:each var="each" in="${ventas}">
+		<g:each var="each" in="${compras}">
 			<tr class="Nuevo rowPub" onclick="goToPublicacion(${each.id});">
 					<td>${each.titulo}</td>
 					<td>${each.fechaPublicacion}</td>

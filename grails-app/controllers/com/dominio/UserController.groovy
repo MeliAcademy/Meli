@@ -12,6 +12,7 @@ class UserController {
 	
 	UserService userService = new UserService()
 	PublicacionService publicacionService = new PublicacionService()
+	
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {

@@ -4,11 +4,15 @@
 		<meta name="layout" content="main"/>
 		<g:javascript>
 			function comprar(){
-				if("${session.user.userName}" != null){
+				if("${session.user}" != ""){
 					location.href = "${createLink(action: 'resultadoComprar', controller: 'publicacion', params: [publicacion: publicacion.id])}";
 				}else{
 					alert('Primero debes loguearte')
 				}	
+			}
+			
+			function goToPreguntas(){
+				location.href = "${createLink(action: 'resultadoBusqueda', controller: 'pregunta', params: [publicacion: publicacion.id])}";
 			}
 		</g:javascript>
 	</head>
@@ -26,5 +30,8 @@
 	          </div>
 	        </div>
 		</div>
+		
+		Queres hacer una pregunta?
+		Hazlo <a onclick="javascript:goToPreguntas();">aqui</a>
 	</body>
 </html>

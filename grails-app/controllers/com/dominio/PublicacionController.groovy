@@ -11,7 +11,7 @@ import com.sun.xml.internal.ws.wsdl.writer.document.Service;
 
 class PublicacionController {
 	
-	PublicacionService publicacionService
+	PublicacionService publicacionService = new PublicacionService()
 	UserService userService = new UserService()
 	
 	static allowedMethods = [buscarPorTitulo:'GET', crearPublicacion: 'GET', resultadoCrear: 'POST']
@@ -36,11 +36,11 @@ class PublicacionController {
 	
 	def crearPublicacion = {
 		//CHECK LOGIN
-		return new ModelAndView("/publicacion/crearPublicacion")
+		return new ModelAndView("/publicacion/crearPublicacion", [categorias: Categoria.getAll()])
 	}
 	
 	def resultadoCrear = {
-		Publicacion publicacion = publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue(), Boolean.parseBoolean(params.esPublicacionSinUso), session.getAttribute("user").id)	
+		Publicacion publicacion = publicacionService.crearPublicacion(params.titulo, params.descripcion, Double.valueOf(params.precio).doubleValue(), Boolean.parseBoolean(params.esPublicacionSinUso), session.getAttribute("user").id, Long.parseLong(params.categoria))	
 		boolean resultado = publicacion.isAttached()
 		return new ModelAndView("/publicacion/resultadoCrear", [publicacion: publicacion, resultado: resultado])
 	}

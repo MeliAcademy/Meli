@@ -2,9 +2,18 @@
 	<head>
 		<title>Mis publicaciones</title>
 		<meta name="layout" content="main"/>
+		<style type="text/css">
+			.rowPub:hover{
+				cursor: pointer;
+			}
+			td { text-align: center; } 
+			td * { display: inline; }
+		</style>
 	</head>
 	<body>
 	<div class="bodygeneral">
+		<h1>Mis publicaciones</h1>
+		<br>
 		<table id="tabla" style="width:100%">
 				<thead>
 					<tr>

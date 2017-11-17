@@ -4,8 +4,8 @@
 		<meta name="layout" content="main"/>
 		<g:javascript>
 			function comprar(){
-				if(${session.user} != null){
-					loacation.href = "${createLink(action: 'comprar', controller: 'publicacion', params: [idUser:session.user, publicacion: publicacion])}";
+				if("${session.user.userName}" != null){
+					location.href = "${createLink(action: 'resultadoComprar', controller: 'publicacion', params: [user:session.getAttribute("user"), publicacion: publicacion])}";
 				}else{
 					alert('Primero debes loguearte')
 				}	

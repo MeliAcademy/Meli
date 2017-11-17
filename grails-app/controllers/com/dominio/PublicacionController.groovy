@@ -43,7 +43,10 @@ class PublicacionController {
 	
 	def verPublicacion(String id) {
 		Publicacion publicacion = publicacionService.buscarPublicacionPorId(Long.parseLong(id))
-		
 		return new ModelAndView("/publicacion/verPublicacion", [publicacion: publicacion])
+	}
+	
+	def comprar(String idUsuario, Publicacion publicacion){
+		
 	}
 }

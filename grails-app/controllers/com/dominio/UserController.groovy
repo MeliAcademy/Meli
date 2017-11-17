@@ -10,7 +10,8 @@ import org.springframework.web.servlet.ModelAndView
 
 @Transactional(readOnly = false)
 class UserController {
-
+	
+	UserService userService = new UserService()
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -28,7 +29,6 @@ class UserController {
 	}
 	
 	def createUsers() {
-		UserService userService = new UserService()
 		User user = userService.crearUser()
 		//user.save()
 		
@@ -49,6 +49,7 @@ class UserController {
 			redirect(action: 'index')
 		} 
 		session.user = params.userName
+		session.userObj = user
 	}
 	
     def show(User userInstance) {
@@ -139,6 +140,6 @@ class UserController {
     }
 	
 	def profile = {
-		return new ModelAndView("/user/profile")
+		return new ModelAndView("/user/profile", [usuario: session.userObj.id])
 	}
 }

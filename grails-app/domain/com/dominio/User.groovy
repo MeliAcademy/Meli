@@ -5,5 +5,5 @@ class User {
 	String userName
 	String password
 	int calificacion
-
+	double balance
 }

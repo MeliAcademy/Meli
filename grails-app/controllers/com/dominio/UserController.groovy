@@ -150,6 +150,6 @@ class UserController {
 	}
 	
 	def showSell = {
-		
+		return new ModelAndView("/user/MisVentas", [ventas: publicacionService.buscarVentasPorId(session.getAttribute("user").id)])
 	}
 }

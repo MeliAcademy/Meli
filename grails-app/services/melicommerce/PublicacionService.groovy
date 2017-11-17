@@ -1,7 +1,10 @@
 package melicommerce
 
 
+import javax.transaction.Transaction;
+
 import com.dominio.Publicacion;
+import com.dominio.Transaccion;
 
 import grails.transaction.Transactional
 
@@ -42,4 +45,24 @@ class PublicacionService {
 		return publicaciones
 	}
 	
+	def buscarVentasPorId(Long id) {
+		//Publicacion.findAll("SELECT p.id FROM publicacion p INNER JOIN transaccion t ON p.id = t.idPublicacion WHERE idUser = :idU", [idU: id])
+		def publicaciones = buscarPublicacionesPorId(id)
+		def ids = new ArrayList<>()
+		for (pub in publicaciones) {
+			ids.add(pub.id)
+		}
+		def ventas = Transaccion.withCriteria {
+			'in'("idPublicacion", ids)
+		}
+		def resulFinal = new ArrayList<>()
+		for (publicacion in publicaciones) {
+			for (venta in ventas) {
+				if(publicacion.id == venta.idPublicacion) {
+					resulFinal.add(publicacion)
+				}
+			}
+		}
+		return resulFinal
+	}
 }

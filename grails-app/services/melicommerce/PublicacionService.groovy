@@ -28,10 +28,10 @@ class PublicacionService {
 		return publicaciones.get(0)
 	}
 	
-	def crearPublicacion(String titulo, String desc, double precio, boolean esNuevo, Long id) {
+	def crearPublicacion(String titulo, String desc, double precio, boolean esNuevo, Long id, Long categoria) {
 		String smh = new Date().format("yyyy-MM-dd hh:mm:ss")
 		def mydate = Date.parse("yyyy-MM-dd hh:mm:ss", smh)
-		Publicacion pub = new Publicacion(titulo: titulo, fechaPublicacion: mydate, descripcion: desc, precio: precio, fueVendido : false, esPublicacionSinUso: esNuevo, idUser: id)
+		Publicacion pub = new Publicacion(titulo: titulo, fechaPublicacion: mydate, descripcion: desc, precio: precio, fueVendido : false, esPublicacionSinUso: esNuevo, idUser: id, idCategoria: categoria)
 		if(precio > 0) {
 			pub.save()		
 		}

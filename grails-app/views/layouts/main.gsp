@@ -37,10 +37,10 @@
 	            </li>
 	            <li class="nav-item">
 		            <g:if test="${session.user==null}">
-						<a class="nav-link js-scroll-trigger" href="../user/login.gsp">LOGIN</a>
+						<a class="nav-link js-scroll-trigger" href="/MeliCommerce/user/login.gsp">LOGIN</a>
 					</g:if>
 		            <g:else>
-						<a class="nav-link js-scroll-trigger" href="../user/profile.gsp">${session.user.userName}</a>
+						<a class="nav-link js-scroll-trigger" href="/MeliCommerce/user/profile.gsp">${session.user.userName}</a>
 					</g:else>
 	            </li>
 	          </ul>

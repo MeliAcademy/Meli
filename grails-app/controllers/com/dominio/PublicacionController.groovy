@@ -7,6 +7,8 @@ import melicommerce.UserService
 
 import org.springframework.web.servlet.ModelAndView
 
+import com.sun.xml.internal.ws.wsdl.writer.document.Service;
+
 class PublicacionController {
 	
 	PublicacionService publicacionService
@@ -49,22 +51,6 @@ class PublicacionController {
 	}
 	
 	def resultadoComprar = {
-		boolean resultado = false
-		String resultadoRazon = "Se ha encontrado un problema en el servidor"
-		if(params.user.balance >= params.publicacion.precio){
-			resultado = true
-			resultadoRazon = ""
-			params.user.balance -= params.publicacion.precio
-			User userVendedor = userService.buscarUserPorId(params.publicacion.idUser)
-			userVendedor.balance += params.publicacion.precio
-			params.publicacion.fueVendido = true	
-			params.user.save()
-			params.publicacion.save()
-			userVendedor.save()
-		}else{
-			resultado = false
-			resultadoRazon = "No tenés suficiente dinero en tu cuenta"
-		}
-		return new ModelAndView("/publicacion/resultadoComprar", [resultado: resultado, resultadoRazon: resultadoRazon])
+		return new ModelAndView("/publicacion/resultadoComprar", userService.comprar(session.getAttribute("user").id, Long.parseLong(params.publicacion)))
 	}
 }

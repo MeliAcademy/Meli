@@ -11,7 +11,7 @@ import com.sun.xml.internal.ws.wsdl.writer.document.Service;
 
 class PublicacionController {
 	
-	PublicacionService publicacionService
+	PublicacionService publicacionService = new PublicacionService()
 	UserService userService = new UserService()
 	
 	static allowedMethods = [buscarPorTitulo:'GET', crearPublicacion: 'GET', resultadoCrear: 'POST']

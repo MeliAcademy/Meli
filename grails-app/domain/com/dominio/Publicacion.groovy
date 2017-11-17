@@ -10,5 +10,6 @@ class Publicacion {
 	boolean esPublicacionSinUso;
 	double precio
 	Long idUser
+	Categoria categoria
 
 }

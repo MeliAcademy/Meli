@@ -47,6 +47,7 @@ class PublicacionController {
 	}
 	
 	def comprar(String idUsuario, Publicacion publicacion){
-		
+		println idUsuario
+		println publicacion
 	}
 }

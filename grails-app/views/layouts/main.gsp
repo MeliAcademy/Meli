@@ -40,7 +40,7 @@
 						<a class="nav-link js-scroll-trigger" href="../user/login.gsp">LOGIN</a>
 					</g:if>
 		            <g:else>
-						<a class="nav-link js-scroll-trigger" href="../user/profile.gsp">${session.user}</a>
+						<a class="nav-link js-scroll-trigger" href="../user/profile.gsp">${session.user.userName}</a>
 					</g:else>
 	            </li>
 	          </ul>

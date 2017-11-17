@@ -48,8 +48,8 @@ class UserController {
 			}
 			redirect(action: 'index')
 		} 
-		session.user = params.userName
-		session.userObj = user
+		session.putAt("user", user)
+		redirect(action: 'index')
 	}
 	
     def show(User userInstance) {
@@ -140,6 +140,6 @@ class UserController {
     }
 	
 	def profile = {
-		return new ModelAndView("/user/profile", [usuario: session.userObj.id])
+		return new ModelAndView("/user/profile", [usuario: userService.buscarUserPorId(session.user.id)])
 	}
 }

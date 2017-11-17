@@ -26,7 +26,11 @@ class PublicacionService {
 	}
 	
 	def crearPublicacion(String titulo, String desc, double precio, boolean esNuevo) {
-		def mydate = Date.parse("yyyy-MM-dd hh:mm:ss", "2014-04-03 1:23:45")
+		String smh = new Date().format("yyyy-MM-dd hh:mm:ss")
+		def mydate = Date.parse("yyyy-MM-dd hh:mm:ss", smh)
+		
+		
+		println mydate
 		Publicacion pub = new Publicacion(titulo: titulo, fechaPublicacion: mydate, descripcion: desc, precio: precio, fueVendido : false, esPublicacionSinUso: esNuevo)
 		pub.save()
 		return pub

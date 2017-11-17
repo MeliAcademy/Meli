@@ -1,8 +1,10 @@
 <html>
 	<head>
 		<title>Mis publicaciones</title>
+		<meta name="layout" content="main"/>
 	</head>
 	<body>
+	<div class="bodygeneral">
 		<table id="tabla" style="width:100%">
 				<thead>
 					<tr>
@@ -24,5 +26,6 @@
 		</g:each>
 		</tbody>
 		</table>
+		</div>
 	</body>
 </html>

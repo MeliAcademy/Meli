@@ -35,6 +35,8 @@ class UserService {
 			usuarioComprador.save()
 			pub.save()
 			usuarioVendedor.save()
+		}else if(usuarioComprador.id == usuarioVendedor.id){
+			resultadoRazon = "No podés comprar una publicación que publicaste"
 		}else{
 			resultadoRazon = "No tenés suficiente dinero en tu cuenta"
 		}

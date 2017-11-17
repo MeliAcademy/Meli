@@ -13,7 +13,7 @@
 			<div align=center>
 				<g:if test="${resultado == true}">
 				     <div id="resultadoTrue" style="text-align:center">
-						<h1>La publicacion se ha comprado correctamente!</h1>
+						<h1>El producto se ha comprado correctamente!</h1>
 						<br>
 						<div>
 							<a class="btn btn-primary btn-xl text-uppercase" onclick="javascript:goToInicio();">Ir a inicio</a>

@@ -59,14 +59,14 @@
 					<g:each var="each" in="${publicaciones}">
 						<g:if test="${each.esPublicacionSinUso == true}">
 						<!-- rowPub -->
-							<tr class="Nuevo" onclick="goToPublicacion(${each.id});">
+							<tr class="Nuevo rowPub" onclick="goToPublicacion(${each.id});">
 								<td>${each.titulo}</td>
 								<td>${each.fechaPublicacion}</td>
 								<td>${each.precio}</td>
 					      	</tr>
 						</g:if>
 						<g:if test="${each.esPublicacionSinUso == false}">
-							<tr class="Usado" onclick="goToPublicacion(${each.id});">
+							<tr class="Usado rowPub" onclick="goToPublicacion(${each.id});">
 								<td>${each.titulo}</td>
 								<td>${each.fechaPublicacion}</td>
 								<td>${each.precio}</td>

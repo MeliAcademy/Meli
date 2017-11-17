@@ -6,6 +6,12 @@
 	
 	<body >
       <div class="bodygeneral">
+			<div class="text-center">
+	          <div class="col-md-4" style="max-width: 100%!important">
+	            <h4 class="service-heading">Balance</h4>
+	            <p class="text-muted">${usuario.balance}</p>
+	          </div>
+	        </div>
 	      <g:form controller="user" action="logout" method="get" style="text-align:center;">
           	<g:submitButton name="Submit" value="Logout" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" />
 	      </g:form>

@@ -46,7 +46,6 @@ class PublicacionService {
 	}
 	
 	def buscarVentasPorId(Long id) {
-		//Publicacion.findAll("SELECT p.id FROM publicacion p INNER JOIN transaccion t ON p.id = t.idPublicacion WHERE idUser = :idU", [idU: id])
 		def publicaciones = buscarPublicacionesPorId(id)
 		def ids = new ArrayList<>()
 		for (pub in publicaciones) {
@@ -64,5 +63,18 @@ class PublicacionService {
 			}
 		}
 		return resulFinal
+	}
+	
+	def buscarComprasPorId(Long id) {
+		
+		def ventas = Transaccion.withCriteria {
+			eq("idUser", id)
+		}
+		def idPubs = new ArrayList<>()
+		for (venta in ventas) {
+			idPubs.add(venta.idPublicacion)
+		}
+		
+		
 	}
 }

@@ -153,4 +153,8 @@ class UserController {
 	def showSell = {
 		return new ModelAndView("/user/MisVentas", [ventas: publicacionService.buscarVentasPorId(session.getAttribute("user").id)])
 	}
+	
+	def showBuys = {
+		return new ModelAndView("/user/MisCompras", [compras: publicacionService.buscarComprasPorId(session.getAttribute("user").id)])
+	}
 }

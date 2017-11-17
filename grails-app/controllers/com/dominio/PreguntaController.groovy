@@ -19,7 +19,9 @@ class PreguntaController {
 	}
 	
 	def crearPregunta = {
-		return new ModelAndView("/pregunta/crearPregunta")
+		def pregunta = preguntaService.crearPregunta(params.texto)
+		redirect(action: resultadoBusqueda)
+		//return new ModelAndView("/pregunta/resultadoBusqueda")
 	}
 	
 }

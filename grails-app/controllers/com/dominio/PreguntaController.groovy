@@ -15,13 +15,14 @@ class PreguntaController {
 	
 	def resultadoBusqueda = {
 		def preguntas = preguntaService.buscarPreguntasporPublicacion(Publicacion.get(params.publicacion));
-		return [preguntas: preguntas]
+		return [preguntas: preguntas, publicacion: params.publicacion]
 	}
 	
 	def crearPregunta = {
 		def pregunta = preguntaService.crearPregunta(params.texto)
-		redirect(action: resultadoBusqueda)
-		//return new ModelAndView("/pregunta/resultadoBusqueda")
+		redirect(action: resultadoBusqueda, params:[publicacion: params.publicacion])
+		//return new ModelAndView("/pregunta/resultadoBusqueda", [publicacion: params.publicacion])
+		
 	}
 	
 }

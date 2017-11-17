@@ -33,7 +33,7 @@
 					</g:form>
 	            </li>
 	            <li class="nav-item">
-	              <a class="nav-link js-scroll-trigger" href="../publicacion/crearPublicacion.gsp">PUBLICAR</a>
+	              <a class="nav-link js-scroll-trigger" href="/MeliCommerce/publicacion/crearPublicacion.gsp">PUBLICAR</a>
 	            </li>
 	            <li class="nav-item">
 		            <g:if test="${session.user==null}">

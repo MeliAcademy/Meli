@@ -10,6 +10,10 @@
 					alert('Primero debes loguearte')
 				}	
 			}
+			
+			function goToPreguntas(){
+				location.href = "${createLink(action: 'resultadoBusqueda', controller: 'pregunta', params: [publicacion: publicacion.id])}";
+			}
 		</g:javascript>
 	</head>
 	
@@ -26,5 +30,8 @@
 	          </div>
 	        </div>
 		</div>
+		
+		Queres hacer una pregunta?
+		Hazlo <a onclick="javascript:goToPreguntas();">aqui</a>
 	</body>
 </html>

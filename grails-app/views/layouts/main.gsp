@@ -36,7 +36,12 @@
 	              <a class="nav-link js-scroll-trigger" href="../publicacion/crearPublicacion.gsp">PUBLICAR</a>
 	            </li>
 	            <li class="nav-item">
-	              <a class="nav-link js-scroll-trigger" href="../user/login.gsp">LOGIN</a>
+		            <g:if test="${session.user==null}">
+						<a class="nav-link js-scroll-trigger" href="../user/login.gsp">LOGIN</a>
+					</g:if>
+		            <g:else>
+						<a class="nav-link js-scroll-trigger" href="../user/profile.gsp">${session.user}</a>
+					</g:else>
 	            </li>
 	          </ul>
 	        </div>

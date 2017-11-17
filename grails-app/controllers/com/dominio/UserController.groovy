@@ -17,9 +17,14 @@ class UserController {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
-	
+		
 	def login = {
 		return new ModelAndView("/user/login")
+	}
+	
+	def logout = {
+		session.user = null
+		redirect (action: 'index')
 	}
 	
 	def createUsers() {
@@ -133,8 +138,7 @@ class UserController {
         }
     }
 	
-	def logout = {
-		session.user = null
-		redirect(action : 'index')
+	def profile = {
+		return new ModelAndView("/user/profile")
 	}
 }
